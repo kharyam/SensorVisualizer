@@ -20,8 +20,8 @@ Maven is a build tool which simplifies building java projects. In a nutshell, a 
 
 http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
 
-Here is a more detailed 30 minute tutorial:
+Here is a more detailed tutorial:
 
 http://maven.apache.org/guides/getting-started/index.html
 
-9.
+9. 
