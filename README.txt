@@ -12,9 +12,9 @@ http://www.eclipse.org/downloads/
 
 6. Search for 	"Maven Integration"
 
-7. CLick the install button under the "Maven Integration for Eclipse WTP" plugin
+7. Click the install button under the "Maven Integration for Eclipse WTP" plugin
 
-8. CLick next, accept the license agreement, select finish.  Select yes when it asks you to restart.
+8. Click next, accept the license agreement, select finish.  Select yes when it asks you to restart.
 
 Maven is a build tool which simplifies building java projects. In a nutshell, a maven project hass a pom.xml file which defines metadata about your project (such as any dependencies).  Maven then downloads the dependencies for you and includes them in your project.  See this link for a 5-minute maven tutorial:
 
