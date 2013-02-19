@@ -26,36 +26,24 @@ http://maven.apache.org/guides/getting-started/index.html
 
 8b. Repeat this process, but search for egit in the marketplace and install it as well.  Restart eclipse.
 
-9. window->preferences->maven->discovery Open Catalog
+9. If you get a dialog saying "HOME is not set" select "Do not show again" then click ok
 
-10. Scroll to the bottom and select m2e-egit and click finish
+10. Close the welcome screen if you get it
 
-11. Next, Next, accept license, finish
+11. Window->Open perspective -> Git repository exploring, click Ok
 
-12. Click ok
-
-13. If a warning pops up after the install, select ok
-
-14. Select yes to restart eclipse again
-
-15. If you get a dialog saying "HOME is not set" select "Do not show again" then click ok
-
-16. Close the welcome screen if you get it
-
-17. Window->Open perspective -> Git repository exploring, click Ok
-
-18. Select the "Clone a Git repository" link
+12. Select the "Clone a Git repository" link
 URI: https://github.com/kharyam/SensorVisualizer.git
 
-19. Click next
+13. Click next
 
-20. Make sure master is selected and click Next, Click Finish
+14. Make sure master is selected and click Next, Click Finish
 
-21. SensorVisualizer will appear as a git repository in the left pane
+15. SensorVisualizer will appear as a git repository in the left pane
 
-22. Right click "Working Directory" and select "Import Maven Projects"
+16. Right click "SensorVisualizer" and select "Import Projects..."
 
-23. On the next screen, select finish
+23. Select "Import as general project", select next, then finish
 
 24. In the upper right, select the "Java EE" button.  If you don't see it, do Window->open perspective->other->Java EE and select ok
 
