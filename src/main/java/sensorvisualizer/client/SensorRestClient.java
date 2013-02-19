@@ -126,7 +126,7 @@ public class SensorRestClient {
 	/**
 	 * 
 	 * This method will make sure the token is still valid. If it isn't, it will
-	 * log in to the API again
+	 * log in to the API again if retry is true
 	 * 
 	 */
 	private boolean validateLogin(boolean retry) {
