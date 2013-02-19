@@ -32,7 +32,7 @@ public class GmailSender {
 		final String username = Controller.getInstance().getConfigValue(Controller.GMAIL_SENDER_ADDRESS_PROPERTY);
 		final String password = Controller.getInstance().getConfigValue(Controller.GMAIL_SENDER_PASSWORD_PROPERTY);
 
-		log.info("Sending email\nTo: "+address+"\nFrom: "+username+"\nSubject: "+subject+"\nBody: "+body+"\n");
+		log.info("Sending email\n    To: "+address+"\n    From: "+username+"\n    Subject: "+subject+"\n    Body: "+body+"\n");
 		
 		if (username == null || password==null) {
 			log.error("No username/password set for sending email.  Please add a gmail username and password to the configuration file using "+ Controller.GMAIL_SENDER_ADDRESS_PROPERTY + " and " + Controller.GMAIL_SENDER_PASSWORD_PROPERTY);	
