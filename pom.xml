@@ -1,88 +1,88 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.khary</groupId>
-	<artifactId>sensorvisualizer</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	
-	<!-- These are the external dependencies required by the application -->
-	<dependencies>
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>net.khary</groupId>
+  <artifactId>sensorvisualizer</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
 
-		<!-- Jersey client is used to call restful uris -->
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-client</artifactId>
-			<version>1.17</version>
-		</dependency>
+  <!-- These are the external dependencies required by the application -->
+  <dependencies>
 
-		<!-- dom4j is used to parse the returned xml using xpath expressions-->
-		<dependency>
-			<groupId>dom4j</groupId>
-			<artifactId>dom4j</artifactId>
-			<version>1.6.1</version>
-		</dependency>
+    <!-- Jersey client is used to call restful uris -->
+    <dependency>
+      <groupId>com.sun.jersey</groupId>
+      <artifactId>jersey-client</artifactId>
+      <version>1.17</version>
+    </dependency>
 
-		<!-- Needed by dom4j -->
-		<dependency>
-			<groupId>jaxen</groupId>
-			<artifactId>jaxen</artifactId>
-			<version>1.1.4</version>
-		</dependency>
+    <!-- dom4j is used to parse the returned xml using xpath expressions -->
+    <dependency>
+      <groupId>dom4j</groupId>
+      <artifactId>dom4j</artifactId>
+      <version>1.6.1</version>
+    </dependency>
 
-		<!-- Used for logging to the console and to a file -->
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
+    <!-- Needed by dom4j -->
+    <dependency>
+      <groupId>jaxen</groupId>
+      <artifactId>jaxen</artifactId>
+      <version>1.1.4</version>
+    </dependency>
 
-		<!-- Mail API used to send gmail alerts -->
-		<dependency>
-			<groupId>javax.mail</groupId>
-			<artifactId>mail</artifactId>
-			<version>1.4.6</version>
-		</dependency>
+    <!-- Used for logging to the console and to a file -->
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+    </dependency>
 
-		<!-- construct an executable jar -->
-	</dependencies>
+    <!-- Mail API used to send gmail alerts -->
+    <dependency>
+      <groupId>javax.mail</groupId>
+      <artifactId>mail</artifactId>
+      <version>1.4.6</version>
+    </dependency>
 
-	<build>
-		
-	<!-- The name of the jar file-->
-	<finalName>sensorvisualizer</finalName>
-		<plugins>
-			<!-- The Java compiler plugin -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-			        <artifactId>maven-compiler-plugin</artifactId>
-			        <version>3.0</version>
-			        <configuration>
-			          <source>1.7</source>
-			          <target>1.7</target>
-			        </configuration>
-			</plugin>
-			<!-- The shade plugin is used here to create an executable jar-->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-shade-plugin</artifactId>
-				<version>2.0</version>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>shade</goal>
-						</goals>
-						<configuration>
-							<transformers>
-								<transformer
-									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>sensorvisualizer.controller.Main</mainClass>
-								</transformer>
-							</transformers>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+    <!-- construct an executable jar -->
+  </dependencies>
+
+  <build>
+
+    <!-- The name of the jar file -->
+    <finalName>sensorvisualizer</finalName>
+    <plugins>
+      <!-- The Java compiler plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.0</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+      <!-- The shade plugin is used here to create an executable jar -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>2.0</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <transformers>
+                <transformer
+                  implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>sensorvisualizer.controller.Main</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
