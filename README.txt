@@ -50,3 +50,7 @@ URI: https://github.com/kharyam/SensorVisualizer.git
 The project will be in the project explorer on the left, you can expand it to see the source code.  The java packages and code will be under the src/main/java folder
 
 25 To run it in eclipse, Right click on Main.java (under sensorvisualizer.controller) and select Run As->Java Application.  The login window will pop up and The console output should appear at the bottom of the screen after you log in.
+
+To Create the executable jar file:
+1. Right click the project, Run As->Maven install
+2. It should build successfully.  A "target" folder will appear under the project and sensorvisualizer.jar will be there.

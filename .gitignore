@@ -3,3 +3,5 @@
 /.project
 /target
 /bin
+/dependency-reduced-pom.xml
+/monitoring.log
