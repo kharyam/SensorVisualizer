@@ -37,7 +37,7 @@ public class SensorRestClient {
 	private static SensorRestClient theInstance;
 
 	private Client client;
-	WebResource webResource;
+	private WebResource webResource;
 	private String username;
 	private String password;
 
