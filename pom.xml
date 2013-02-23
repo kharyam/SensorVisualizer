@@ -92,4 +92,8 @@
         </plugin>
     </plugins>
   </build>
+  <ciManagement>
+    <system>jenkins</system>
+    <url>https://khary.net/ci/job/Sensor%20Visualizer/</url>
+  </ciManagement>
 </project>
