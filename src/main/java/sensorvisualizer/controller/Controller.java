@@ -112,9 +112,13 @@ public class Controller {
 	}
 
 	public void updateTemperatures() {
-		// Retrieve updates to the sensors in a new thread (SwingWorker) so that the GUI remains responsive
+		
+		
 		SensorStatuses.getInstance().setNotificationEmail(mainFrame.getEmailAddress());
-		setConfigValue(EMAIL_ADDRESS_PROPERTY,mainFrame.getEmailAddress()); // Store email address
+		
+		setConfigValue(EMAIL_ADDRESS_PROPERTY,mainFrame.getEmailAddress()); 
+		
+		// Retrieve updates to the sensors in a new thread (SwingWorker) so that the GUI remains responsive
 		new StatusUpdater().execute();
 	}
 
