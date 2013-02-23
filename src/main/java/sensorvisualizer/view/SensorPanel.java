@@ -39,7 +39,7 @@ public class SensorPanel extends JPanel {
 	
 	public SensorPanel() {
 		setLayout(new BorderLayout());
-
+		
 		JPanel filterPanel = new JPanel();
 		filterPanel.setBorder(BorderFactory.createTitledBorder("Filters"));
 		filterPanel.setLayout(new GridLayout(4, 2));
@@ -53,11 +53,8 @@ public class SensorPanel extends JPanel {
 		filterPanel.add(statusTF);
 		add(filterPanel, BorderLayout.NORTH);
 
-		filterPanel.setEnabled(false);
-		nameTF.setEnabled(false);
-		networkIdTF.setEnabled(false);
-		applicationIdTF.setEnabled(false);
-		statusTF.setEnabled(false);
+		// Hide filters for now since it isn't implemented 
+		filterPanel.setVisible(false);		
 		
 		sensorTable = new JTable(new SensorTableModel());
 		JScrollPane scrollpane = new JScrollPane(sensorTable);
@@ -65,6 +62,7 @@ public class SensorPanel extends JPanel {
 
 		JPanel refreshPanel = new JPanel();
 		refreshPanel.setLayout(new GridLayout(1, 2));
+    progressBar.setStringPainted(true);
 		progressBar.setToolTipText("Time until refresh");
 		refreshPanel.add(progressBar);
 		
@@ -97,9 +95,5 @@ public class SensorPanel extends JPanel {
 		return progressBar;
 	}
 
-
-	public void setProgressBar(JProgressBar progressBar) {
-		this.progressBar = progressBar;
-	}
 
 }

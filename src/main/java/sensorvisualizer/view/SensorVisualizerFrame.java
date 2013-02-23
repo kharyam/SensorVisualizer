@@ -42,7 +42,7 @@ public class SensorVisualizerFrame extends JFrame {
 		getContentPane().add(sensorPanel,BorderLayout.CENTER);
 		
 		pack();
-		setSize(700, 600);
+		setSize(700, 400);
 		
 		// Get the size of the screen
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();

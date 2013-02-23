@@ -76,14 +76,17 @@ public class Controller {
 			mainFrame = new SensorVisualizerFrame();
 			mainFrame.setEmailAddress(configProperties.getProperty(EMAIL_ADDRESS_PROPERTY));
 			mainFrame.setVisible(true);
-			timer = new Timer(100, new ActionListener() {
+			timer = new Timer(250, new ActionListener() {
 
 				public void actionPerformed(ActionEvent e) {
 
 					Date now = new Date();
 
-					mainFrame.getSensorPanel().getProgressBar().setValue((int) (  (nextUpdate.getTime() - now.getTime())/(double)updateFrequency * 100.0) );
-
+					mainFrame.getSensorPanel().getProgressBar().setValue((int) (  ((double)(nextUpdate.getTime() - now.getTime()))/(double)updateFrequency * 100.0) );
+					
+					long secondsLeft =(((nextUpdate.getTime() - now.getTime()) /1000)+1);
+					String statusString = "" + secondsLeft + (secondsLeft == 1 ? " second" : " seconds") + " before refresh.";
+					mainFrame.getSensorPanel().getProgressBar().setString(statusString);
 					if (now.getTime()>=nextUpdate.getTime()) {
 						updateTemperatures();
 						mainFrame.setCursor(java.awt.Cursor.getPredefinedCursor(java.awt.Cursor.DEFAULT_CURSOR));
