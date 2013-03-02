@@ -86,6 +86,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>exec-maven-plugin</artifactId>
+          <version>1.2</version>
           <configuration>
             <mainClass>sensorvisualizer.controller.Main</mainClass>
           </configuration>
@@ -96,4 +97,8 @@
     <system>jenkins</system>
     <url>https://khary.net/ci/job/Sensor%20Visualizer/</url>
   </ciManagement>
+  <issueManagement>
+      <system>github</system>
+      <url>https://github.com/kharyam/SensorVisualizer/issues</url>
+  </issueManagement>
 </project>
