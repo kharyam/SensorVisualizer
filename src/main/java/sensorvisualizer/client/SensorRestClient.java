@@ -220,11 +220,12 @@ public class SensorRestClient {
 	 * Populate the list of sensors based on the web service response
 	 * 
 	 * @param response
-	 * @param sensors
+	 * @param sensors Must not be null
 	 */
 	private void populateSensors(ClientResponse response,
 			ArrayList<Sensor> sensors) {
-
+            
+		sensors.clear();
 		String xmlString = (String) response.getEntity(String.class);
 		try {
 			Document document = DocumentHelper.parseText(xmlString);
