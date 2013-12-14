@@ -1,99 +1,86 @@
 package sensorvisualizer.view;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
+import sensorvisualizer.controller.Controller;
+import sensorvisualizer.model.SensorTableModel;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 
-import javax.swing.BorderFactory;
-import javax.swing.JComboBox;
-import javax.swing.JFormattedTextField;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JProgressBar;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-
-import sensorvisualizer.controller.Controller;
-import sensorvisualizer.model.SensorTableModel;
-
 public class SensorPanel extends JPanel {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private JTextField nameTF = new JTextField();
-	private JFormattedTextField networkIdTF = new JFormattedTextField(
-			NumberFormat.getInstance());
-	private JFormattedTextField applicationIdTF = new JFormattedTextField(
-			NumberFormat.getInstance());
-	private JFormattedTextField statusTF = new JFormattedTextField(
-			NumberFormat.getInstance());
-	private JTable sensorTable;
-	private JComboBox<String> refreshCB;
-	private JProgressBar progressBar = new JProgressBar(0, 100);
-	
-	
-	public SensorPanel() {
-		setLayout(new BorderLayout());
-		
-		JPanel filterPanel = new JPanel();
-		filterPanel.setBorder(BorderFactory.createTitledBorder("Filters"));
-		filterPanel.setLayout(new GridLayout(4, 2));
-		filterPanel.add(new JLabel("Name:"));
-		filterPanel.add(nameTF);
-		filterPanel.add(new JLabel("Network ID:"));
-		filterPanel.add(networkIdTF);
-		filterPanel.add(new JLabel("Application ID:"));
-		filterPanel.add(applicationIdTF);
-		filterPanel.add(new JLabel("Status:"));
-		filterPanel.add(statusTF);
-		add(filterPanel, BorderLayout.NORTH);
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+  private JTextField nameTF = new JTextField();
+  private JFormattedTextField networkIdTF = new JFormattedTextField(
+      NumberFormat.getInstance());
+  private JFormattedTextField applicationIdTF = new JFormattedTextField(
+      NumberFormat.getInstance());
+  private JFormattedTextField statusTF = new JFormattedTextField(
+      NumberFormat.getInstance());
+  private JTable sensorTable;
+  private JComboBox<String> refreshCB;
+  private JProgressBar progressBar = new JProgressBar(0, 100);
 
-		// Hide filters for now since it isn't implemented 
-		filterPanel.setVisible(false);		
-		
-		sensorTable = new JTable(new SensorTableModel());
-		JScrollPane scrollpane = new JScrollPane(sensorTable);
-		add(scrollpane, BorderLayout.CENTER);
+  public SensorPanel() {
+    setLayout(new BorderLayout());
 
-		JPanel refreshPanel = new JPanel();
-		refreshPanel.setLayout(new GridLayout(1, 2));
+    JPanel filterPanel = new JPanel();
+    filterPanel.setBorder(BorderFactory.createTitledBorder("Filters"));
+    filterPanel.setLayout(new GridLayout(4, 2));
+    filterPanel.add(new JLabel("Name:"));
+    filterPanel.add(nameTF);
+    filterPanel.add(new JLabel("Network ID:"));
+    filterPanel.add(networkIdTF);
+    filterPanel.add(new JLabel("Application ID:"));
+    filterPanel.add(applicationIdTF);
+    filterPanel.add(new JLabel("Status:"));
+    filterPanel.add(statusTF);
+    add(filterPanel, BorderLayout.NORTH);
+
+    // Hide filters for now since it isn't implemented
+    filterPanel.setVisible(false);
+
+    sensorTable = new JTable(new SensorTableModel());
+    JScrollPane scrollpane = new JScrollPane(sensorTable);
+    add(scrollpane, BorderLayout.CENTER);
+
+    JPanel refreshPanel = new JPanel();
+    refreshPanel.setLayout(new GridLayout(1, 2));
     progressBar.setStringPainted(true);
-		progressBar.setToolTipText("Time until refresh");
-		refreshPanel.add(progressBar);
-		
-		final String[] refreshStrings = { "10 Seconds", "30 Seconds", "1 Minute",	"2 Minutes", "5 Minutes" };
-		final int[] refreshSeconds ={10,30,60,120,300};
-		refreshCB = new JComboBox<String>(refreshStrings);
-		refreshCB.setToolTipText("Refresh frequency");
-		refreshCB.addActionListener(new ActionListener() {
+    progressBar.setToolTipText("Time until refresh");
+    refreshPanel.add(progressBar);
 
-			public void actionPerformed(ActionEvent e) {
-				@SuppressWarnings("unchecked")
-				JComboBox<String> cb = (JComboBox<String>) e.getSource();
-				int index = cb.getSelectedIndex();
+    final String[] refreshStrings = {"10 Seconds", "30 Seconds", "1 Minute", "2 Minutes", "5 Minutes"};
+    final int[] refreshSeconds = {10, 30, 60, 120, 300};
+    refreshCB = new JComboBox<String>(refreshStrings);
+    refreshCB.setToolTipText("Refresh frequency");
+    refreshCB.addActionListener(new ActionListener() {
 
-				int refreshInSeconds=refreshSeconds[index];
-		
-				Controller.getInstance().updateRefresh(refreshInSeconds);
-				
-			}
-		});
+      public void actionPerformed(ActionEvent e) {
+        @SuppressWarnings("unchecked")
+        JComboBox<String> cb = (JComboBox<String>) e.getSource();
+        int index = cb.getSelectedIndex();
 
-		refreshPanel.add(refreshCB);
+        int refreshInSeconds = refreshSeconds[index];
 
-		add(refreshPanel, BorderLayout.SOUTH);
+        Controller.getInstance().updateRefresh(refreshInSeconds);
 
-	}
+      }
+    });
 
+    refreshPanel.add(refreshCB);
 
-	public JProgressBar getProgressBar() {
-		return progressBar;
-	}
+    add(refreshPanel, BorderLayout.SOUTH);
 
+  }
+
+  public JProgressBar getProgressBar() {
+    return progressBar;
+  }
 
 }
